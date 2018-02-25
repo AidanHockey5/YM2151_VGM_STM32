@@ -1,6 +1,7 @@
 #include "LTC6903.h"
 #include "YM2151.h"
 #include "SdFat.h"
+#include <U8g2lib.h>
 
 //const int debugLED = PB12;
 
@@ -8,16 +9,17 @@ SdFat SD;
 File vgm;
 
 int YM_Datapins[8] = {PB8, PB9, PC13, PC14, PC15, PA0, PA1, PA2};
-const int YM_CS = PB7;
-const int YM_RD = PB6;
-const int YM_WR = PB5;
-const int YM_A0 = PB4;
+const int YM_CS = PB3;
+const int YM_RD = PA15;
+const int YM_WR = PA12;
+const int YM_A0 = PA11;
 const int YM_IC = PA3; 
 const int YM_IRQ = NULL;
 
 YM2151 ym2151(YM_Datapins, YM_CS, YM_RD, YM_WR, YM_A0, YM_IRQ, YM_IC);
 
 LTC6903 ltc(PB0);
+U8G2_SSD1306_128X32_UNIVISION_F_HW_I2C u8g2(U8G2_R0);
 
 //Buffer & file stream
 const unsigned int MAX_CMD_BUFFER = 1;
@@ -112,6 +114,25 @@ void RemoveSVI() //Sometimes, Windows likes to place invisible files in our SD c
   }
   SD.vwd()->rewind();
   nextFile.close();
+}
+
+void DrawOLEDInfo()
+{
+  u8g2.setFont(u8g2_font_helvR08_tf);
+  u8g2.clearBuffer();
+  char *cstr = &trackTitle[0u];
+  u8g2.drawStr(0,9, cstr);
+  cstr = &gameName[0u];
+  u8g2.drawStr(0,22, cstr);
+
+  u8g2.setFont(u8g2_font_micro_tr);
+  if(playMode == LOOP)
+    u8g2.drawStr(0,32, "LOOP");
+  else if(playMode == SHUFFLE)
+    u8g2.drawStr(0,32, "SHUFFLE");
+  else
+    u8g2.drawStr(0,32, "IN ORDER");
+  u8g2.sendBuffer();
 }
 
 void ClearTrackData()
@@ -212,9 +233,7 @@ void GetHeaderData() //Scrape off the important VGM data from the header, then d
   if(clockSpeed == 0)
     clockSpeed = 4000000; //Default to 4 MHz
   ltc.SetFrequency(clockSpeed);
-
-
-
+  DrawOLEDInfo();
 
   uint32_t vgmDataOffset = ReadBuffer32();
   if(vgmDataOffset == 0 || vgmDataOffset == 12) //VGM starts at standard 0x40
@@ -387,13 +406,23 @@ void setup()
     // pinMode(loop_btn, INPUT_PULLUP);
     // pinMode(shuf_btn, INPUT_PULLUP);
     Serial.begin(9600);
-
-
-
     ym2151.Reset();
+
+    u8g2.begin();
+    u8g2.setFont(u8g2_font_fub11_tf);
+    u8g2.clearBuffer();
+    u8g2.drawStr(0,16,"Aidan Lawrence");
+    u8g2.drawStr(0,32,"YM2151, 2018");
+    u8g2.sendBuffer();
+    delay(1000);
+
     if(!SD.begin())
     {
         Serial.println("Card Mount Failed");
+        u8g2.clearBuffer();
+        u8g2.drawStr(0,16,"SD Mount");
+        u8g2.drawStr(0,32,"failed!");
+        u8g2.sendBuffer();
         return;
     }
     RemoveSVI();
@@ -433,12 +462,12 @@ void loop()
       case '/': //Toggle shuffle mode
         playMode == SHUFFLE ? playMode = IN_ORDER : playMode = SHUFFLE;
         playMode == SHUFFLE ? Serial.println("SHUFFLE ON") : Serial.println("SHUFFLE OFF");
-        //DrawOledPage();
+        DrawOLEDInfo();
       break;
       case '.': //Toggle loop mode
         playMode == LOOP ? playMode = IN_ORDER : playMode = LOOP;
         playMode == LOOP ? Serial.println("LOOP ON") : Serial.println("LOOP OFF");
-        //DrawOledPage();
+        DrawOLEDInfo();
       break;
       case 'r': //Song Request, format:  r:mySongFileName.vgm - An attempt will be made to find and open that file.
       {
