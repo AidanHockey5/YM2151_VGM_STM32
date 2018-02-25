@@ -1,4 +1,4 @@
-update=2/24/2018 6:26:47 PM
+update=2/24/2018 8:02:04 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -67,3 +67,4 @@ LibName35=Power_Management
 LibName36=C:/Users/Aidan/Documents/KiCad_Custom_Libs/LM2596S-5.0
 LibName37=C:/Users/Aidan/Documents/KiCad_Custom_Libs/CH340G_D-SUN-V3.0-cache
 LibName38=C:/Users/Aidan/Documents/KiCad_Custom_Libs/VGM_Components_Library
+LibName39=C:/Users/Aidan/Documents/KiCad_Custom_Libs/TPA3122D2

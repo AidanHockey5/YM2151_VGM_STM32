@@ -8,6 +8,12 @@
 SdFat SD;
 File vgm;
 
+const int prev_btn = PB12;
+const int rand_btn = PB13;
+const int next_btn = PB14;
+const int loop_btn = PB15;
+const int shuf_btn = PA8;
+
 int YM_Datapins[8] = {PB8, PB9, PC13, PC14, PC15, PA0, PA1, PA2};
 const int YM_CS = PB3;
 const int YM_RD = PA15;
@@ -400,11 +406,11 @@ void StartupSequence(StartUpProfile sup, String request = "")
 
 void setup()
 {
-    // pinMode(prev_btn, INPUT_PULLUP);
-    // pinMode(rand_btn, INPUT_PULLUP);
-    // pinMode(next_btn, INPUT_PULLUP);
-    // pinMode(loop_btn, INPUT_PULLUP);
-    // pinMode(shuf_btn, INPUT_PULLUP);
+    pinMode(prev_btn, INPUT_PULLUP);
+    pinMode(rand_btn, INPUT_PULLUP);
+    pinMode(next_btn, INPUT_PULLUP);
+    pinMode(loop_btn, INPUT_PULLUP);
+    pinMode(shuf_btn, INPUT_PULLUP);
     Serial.begin(9600);
     ym2151.Reset();
 
