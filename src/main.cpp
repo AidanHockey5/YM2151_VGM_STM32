@@ -154,6 +154,7 @@ void ClearTrackData()
 uint32_t EoFOffset = 0;
 uint32_t VGMVersion = 0;
 uint32_t GD3Offset = 0;
+uint32_t prevClockSpeed = 0;
 void GetHeaderData() //Scrape off the important VGM data from the header, then drop down to the GD3 area for song info data
 {
   ReadBuffer32(); //V - G - M 0x00->0x03
@@ -238,7 +239,10 @@ void GetHeaderData() //Scrape off the important VGM data from the header, then d
   clockSpeed = ReadBuffer32();
   if(clockSpeed == 0)
     clockSpeed = 4000000; //Default to 4 MHz
-  ltc.SetFrequency(clockSpeed);
+  if(clockSpeed != prevClockSpeed)
+    ltc.SetFrequency(clockSpeed);
+  prevClockSpeed = clockSpeed;
+  delay(50);
   DrawOLEDInfo();
 
   uint32_t vgmDataOffset = ReadBuffer32();
@@ -487,22 +491,24 @@ void loop()
       break;
     }
   }
-//   if(!digitalRead(next_btn))
-//     StartupSequence(NEXT);
-//   if(!digitalRead(prev_btn))
-//     StartupSequence(PREVIOUS);
-//   if(!digitalRead(rand_btn))
-//     StartupSequence(RNG);
-//   if(!digitalRead(shuf_btn))
-//   {
-//     playMode == SHUFFLE ? playMode = IN_ORDER : playMode = SHUFFLE;
-//     playMode == SHUFFLE ? Serial.println("SHUFFLE ON") : Serial.println("SHUFFLE OFF");
-//   }
-//   if(!digitalRead(loop_btn))
-//   {
-//     playMode == LOOP ? playMode = IN_ORDER : playMode = LOOP;
-//     playMode == LOOP ? Serial.println("LOOP ON") : Serial.println("LOOP OFF");   
-//   }
+  if(!digitalRead(next_btn))
+    StartupSequence(NEXT);
+  if(!digitalRead(prev_btn))
+    StartupSequence(PREVIOUS);
+  if(!digitalRead(rand_btn))
+    StartupSequence(RNG);
+  if(!digitalRead(shuf_btn))
+  {
+    playMode == SHUFFLE ? playMode = IN_ORDER : playMode = SHUFFLE;
+    DrawOLEDInfo();
+    playMode == SHUFFLE ? Serial.println("SHUFFLE ON") : Serial.println("SHUFFLE OFF");
+  }
+  if(!digitalRead(loop_btn))
+  {
+    playMode == LOOP ? playMode = IN_ORDER : playMode = LOOP;
+    DrawOLEDInfo();
+    playMode == LOOP ? Serial.println("LOOP ON") : Serial.println("LOOP OFF");   
+  }
   if(loopCount >= nextSongAfterXLoops)
   {
     if(playMode == SHUFFLE)

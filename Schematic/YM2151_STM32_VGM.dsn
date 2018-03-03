@@ -85,7 +85,7 @@
       (place C25 170815 -62865 front 0 (PN 1000uF))
     )
     (component Connector_Card:SD_TE_2041021
-      (place J1 88265 -68580 front 270 (PN "DM3CS-SF (Micro SD Card Slot)"))
+      (place J1 88265 -68580 front 270 (PN SD_Card))
     )
     (component Connectors:BARREL_JACK
       (place J2 222885 -66040 front 270 (PN Jack_DC+12V))
@@ -124,7 +124,7 @@
       (place U2 144780 -57785 front 0 (PN LTC6903))
     )
     (component "LM2596S-5.0:TO170P1435X465-6N"
-      (place U4 198755 -57785 front 0)
+      (place U4 198755 -57785 front 0 (PN "LM2596S-5.0"))
     )
     (component CH340G:SOIC16
       (place U5 80010 -87630 front 0 (PN CH340G))
@@ -1564,9 +1564,9 @@
     )
     (net GND
       (pins C1-2 C2-2 C3-2 C4-2 C5-2 C6-2 C7-2 C8-2 C9-2 C10-2 C11-2 C12-2 C13-2 C14-2
-        C17-2 C18-2 C21-1 C22-2 C25-2 J1-6 J2-2 J2-3 J3-3 J4-4 SW2-1 SW3-3 SW7-4 U1-19
-        U1-20 U1-39 U2-1 U4-3 U4-5 U4-6 U5-1 U6-1 U7-1 U7-11 U8-3 U8-8 U8-16 U9-11
-        U10-11 U10-14 U10-15 U10-7 U10-8 U10-20 U11-1 D1-2)
+        C17-2 C18-2 C21-1 C22-2 C25-2 J1-3 J1-6 J2-2 J2-3 J3-1 J4-4 SW2-1 SW3-3 SW7-4
+        U1-19 U1-20 U1-39 U2-1 U4-3 U4-5 U4-6 U5-1 U6-1 U7-1 U7-11 U8-3 U8-8 U8-16
+        U9-11 U10-11 U10-14 U10-15 U10-7 U10-8 U10-20 U11-1 D1-2)
     )
     (net +3V3
       (pins C4-1 J1-4 U6-2 U11-2 U11-2@1)
@@ -1629,22 +1629,19 @@
       (pins C22-1 C24-1 L3-2)
     )
     (net L_OUT
-      (pins C23-2 J3-1)
+      (pins C23-2 J3-2)
     )
     (net R_OUT
-      (pins C24-2 J3-2)
+      (pins C24-2 J3-3)
     )
     (net "Net-(D1-Pad1)"
       (pins L1-2 U4-2 D1-1)
     )
-    (net "Net-(J1-Pad1)"
-      (pins J1-1)
-    )
     (net SD_CS
-      (pins J1-2 U1-9)
+      (pins J1-1 U1-9)
     )
     (net SPI_MOSI
-      (pins J1-3 U1-12 U2-2)
+      (pins J1-2 U1-12 U2-2)
     )
     (net SPI_SCLK
       (pins J1-5 U1-10 U2-3)
@@ -1874,23 +1871,33 @@
     (net BC
       (pins U8-14 U9-13)
     )
+    (net "Net-(J1-Pad10)"
+      (pins J1-10)
+    )
+    (net "Net-(J1-Pad11)"
+      (pins J1-11)
+    )
+    (net "Net-(J1-Pad12)"
+      (pins J1-12 J1-12@1 J1-12@2 J1-12@3)
+    )
     (class kicad_default "" +12V +3V3 +5V BC CH1 CH2 COM D0 D1 D2 D3 D4 D5
       D6 D7 GND LEFT_OP_OUT LOOP L_OUT MP NEXT "Net-(C15-Pad2)" "Net-(C16-Pad2)"
       "Net-(C17-Pad1)" "Net-(C18-Pad1)" "Net-(C19-Pad1)" "Net-(C19-Pad2)"
       "Net-(C20-Pad1)" "Net-(C20-Pad2)" "Net-(C21-Pad2)" "Net-(C22-Pad1)"
       "Net-(C7-Pad1)" "Net-(C8-Pad1)" "Net-(C9-Pad1)" "Net-(D1-Pad1)" "Net-(J1-Pad1)"
-      "Net-(J1-Pad8)" "Net-(J1-Pad9)" "Net-(J2-Pad1)" "Net-(J3-Pad4)" "Net-(J3-Pad5)"
-      "Net-(J4-Pad1)" "Net-(J4-Pad2)" "Net-(J4-Pad3)" "Net-(J4-Pad5)" "Net-(R1-Pad1)"
-      "Net-(SW2-Pad2)" "Net-(SW3-Pad2)" "Net-(SW3-Pad4)" "Net-(SW4-Pad2)"
-      "Net-(SW4-Pad4)" "Net-(SW5-Pad2)" "Net-(SW5-Pad4)" "Net-(SW6-Pad2)"
-      "Net-(SW6-Pad4)" "Net-(SW7-Pad2)" "Net-(U1-Pad1)" "Net-(U1-Pad14)" "Net-(U1-Pad15)"
-      "Net-(U1-Pad16)" "Net-(U1-Pad17)" "Net-(U1-Pad18)" "Net-(U1-Pad32)"
-      "Net-(U1-Pad33)" "Net-(U1-Pad40)" "Net-(U1-Pad41)" "Net-(U1-Pad42)"
-      "Net-(U2-Pad5)" "Net-(U2-Pad6)" "Net-(U5-Pad10)" "Net-(U5-Pad11)" "Net-(U5-Pad12)"
-      "Net-(U5-Pad13)" "Net-(U5-Pad14)" "Net-(U5-Pad15)" "Net-(U5-Pad9)" "Net-(U7-Pad2)"
-      "Net-(U7-Pad23)" "Net-(U7-Pad8)" "Net-(U7-Pad9)" PREV RAND RB RIGHT_OP_OUT
-      RX R_OUT SCL SDA SD_CS SH1 SH2 SHUF SO SPI_MISO SPI_MOSI SPI_SCLK TX
-      YM_A0 YM_CLOCK_CS YM_CS YM_IC YM_RD YM_WR tBUF
+      "Net-(J1-Pad10)" "Net-(J1-Pad11)" "Net-(J1-Pad12)" "Net-(J1-Pad8)" "Net-(J1-Pad9)"
+      "Net-(J2-Pad1)" "Net-(J3-Pad4)" "Net-(J3-Pad5)" "Net-(J4-Pad1)" "Net-(J4-Pad2)"
+      "Net-(J4-Pad3)" "Net-(J4-Pad5)" "Net-(R1-Pad1)" "Net-(SW2-Pad2)" "Net-(SW3-Pad2)"
+      "Net-(SW3-Pad4)" "Net-(SW4-Pad2)" "Net-(SW4-Pad4)" "Net-(SW5-Pad2)"
+      "Net-(SW5-Pad4)" "Net-(SW6-Pad2)" "Net-(SW6-Pad4)" "Net-(SW7-Pad2)"
+      "Net-(U1-Pad1)" "Net-(U1-Pad14)" "Net-(U1-Pad15)" "Net-(U1-Pad16)" "Net-(U1-Pad17)"
+      "Net-(U1-Pad18)" "Net-(U1-Pad32)" "Net-(U1-Pad33)" "Net-(U1-Pad40)"
+      "Net-(U1-Pad41)" "Net-(U1-Pad42)" "Net-(U2-Pad5)" "Net-(U2-Pad6)" "Net-(U5-Pad10)"
+      "Net-(U5-Pad11)" "Net-(U5-Pad12)" "Net-(U5-Pad13)" "Net-(U5-Pad14)"
+      "Net-(U5-Pad15)" "Net-(U5-Pad9)" "Net-(U7-Pad2)" "Net-(U7-Pad23)" "Net-(U7-Pad8)"
+      "Net-(U7-Pad9)" PREV RAND RB RIGHT_OP_OUT RX R_OUT SCL SDA SD_CS SH1
+      SH2 SHUF SO SPI_MISO SPI_MOSI SPI_SCLK TX YM_A0 YM_CLOCK_CS YM_CS YM_IC
+      YM_RD YM_WR tBUF
       (circuit
         (use_via Via[0-1]_600:400_um)
       )

@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 1056)
+    (start_pass_no 1206)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -66,16 +66,17 @@
     GND +5V +3V3 +12V "Net-(C7-Pad1)" "Net-(C8-Pad1)" "Net-(C9-Pad1)" RB
     CH2 CH1 "LEFT_OP_OUT" "Net-(C15-Pad2)" "RIGHT_OP_OUT" "Net-(C16-Pad2)" "Net-(C17-Pad1)" "Net-(C18-Pad1)"
     "Net-(C19-Pad1)" "Net-(C19-Pad2)" "Net-(C20-Pad1)" "Net-(C20-Pad2)" "Net-(C21-Pad2)" "Net-(C22-Pad1)" "L_OUT" "R_OUT"
-    "Net-(D1-Pad1)" "Net-(J1-Pad1)" "SD_CS" "SPI_MOSI" "SPI_SCLK" "SPI_MISO" "Net-(J1-Pad8)" "Net-(J1-Pad9)"
-    "Net-(J2-Pad1)" "Net-(J3-Pad5)" "Net-(J3-Pad4)" "Net-(J4-Pad2)" "Net-(J4-Pad1)" "Net-(J4-Pad3)" "Net-(J4-Pad5)" "Net-(R1-Pad1)"
-    COM "Net-(SW2-Pad2)" "Net-(SW3-Pad4)" "Net-(SW3-Pad2)" PREV "Net-(SW4-Pad4)" "Net-(SW4-Pad2)" RAND
-    "Net-(SW5-Pad4)" "Net-(SW5-Pad2)" NEXT "Net-(SW6-Pad4)" "Net-(SW6-Pad2)" LOOP "Net-(SW7-Pad2)" SHUF
-    "Net-(U1-Pad1)" D2 D3 D4 D5 D6 D7 "YM_IC"
-    "YM_CLOCK_CS" "Net-(U1-Pad14)" "Net-(U1-Pad15)" "Net-(U1-Pad16)" "Net-(U1-Pad17)" "Net-(U1-Pad18)" RX TX
-    "YM_A0" "YM_WR" "YM_RD" "YM_CS" "Net-(U1-Pad32)" "Net-(U1-Pad33)" SCL SDA
-    D0 D1 "Net-(U1-Pad40)" "Net-(U1-Pad41)" "Net-(U1-Pad42)" "Net-(U2-Pad5)" "Net-(U2-Pad6)" "Net-(U5-Pad13)"
-    "Net-(U5-Pad14)" "Net-(U5-Pad12)" "Net-(U5-Pad11)" "Net-(U5-Pad9)" "Net-(U5-Pad10)" "Net-(U5-Pad15)" "Net-(U7-Pad2)" SH2
-    "Net-(U7-Pad8)" SH1 "Net-(U7-Pad9)" SO "Net-(U7-Pad23)" tBUF MP BC
+    "Net-(D1-Pad1)" "SD_CS" "SPI_MOSI" "SPI_SCLK" "SPI_MISO" "Net-(J1-Pad8)" "Net-(J1-Pad9)" "Net-(J2-Pad1)"
+    "Net-(J3-Pad5)" "Net-(J3-Pad4)" "Net-(J4-Pad2)" "Net-(J4-Pad1)" "Net-(J4-Pad3)" "Net-(J4-Pad5)" "Net-(R1-Pad1)" COM
+    "Net-(SW2-Pad2)" "Net-(SW3-Pad4)" "Net-(SW3-Pad2)" PREV "Net-(SW4-Pad4)" "Net-(SW4-Pad2)" RAND "Net-(SW5-Pad4)"
+    "Net-(SW5-Pad2)" NEXT "Net-(SW6-Pad4)" "Net-(SW6-Pad2)" LOOP "Net-(SW7-Pad2)" SHUF "Net-(U1-Pad1)"
+    D2 D3 D4 D5 D6 D7 "YM_IC" "YM_CLOCK_CS"
+    "Net-(U1-Pad14)" "Net-(U1-Pad15)" "Net-(U1-Pad16)" "Net-(U1-Pad17)" "Net-(U1-Pad18)" RX TX "YM_A0"
+    "YM_WR" "YM_RD" "YM_CS" "Net-(U1-Pad32)" "Net-(U1-Pad33)" SCL SDA D0
+    D1 "Net-(U1-Pad40)" "Net-(U1-Pad41)" "Net-(U1-Pad42)" "Net-(U2-Pad5)" "Net-(U2-Pad6)" "Net-(U5-Pad13)" "Net-(U5-Pad14)"
+    "Net-(U5-Pad12)" "Net-(U5-Pad11)" "Net-(U5-Pad9)" "Net-(U5-Pad10)" "Net-(U5-Pad15)" "Net-(U7-Pad2)" SH2 "Net-(U7-Pad8)"
+    SH1 "Net-(U7-Pad9)" SO "Net-(U7-Pad23)" tBUF MP BC "Net-(J1-Pad10)"
+    "Net-(J1-Pad11)" "Net-(J1-Pad12)"
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule
