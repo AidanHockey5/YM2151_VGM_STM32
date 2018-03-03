@@ -55,7 +55,7 @@ unsigned long startTime = 0;
 uint32_t loopOffset = 0;
 uint16_t loopCount = 0;
 uint16_t nextSongAfterXLoops = 3;
-uint32_t clockSpeed = 0;
+uint32_t clockSpeed = 3579545;
 enum PlayMode {LOOP, PAUSE, SHUFFLE, IN_ORDER};
 PlayMode playMode = SHUFFLE;
 
@@ -154,7 +154,7 @@ void ClearTrackData()
 uint32_t EoFOffset = 0;
 uint32_t VGMVersion = 0;
 uint32_t GD3Offset = 0;
-uint32_t prevClockSpeed = 0;
+uint32_t prevClockSpeed = 1;
 void GetHeaderData() //Scrape off the important VGM data from the header, then drop down to the GD3 area for song info data
 {
   ReadBuffer32(); //V - G - M 0x00->0x03
@@ -237,8 +237,8 @@ void GetHeaderData() //Scrape off the important VGM data from the header, then d
   loopOffset = ReadBuffer32();  //0x1C->0x1F : Get loop offset Postition
   for(int i = 0; i<4; i++) ReadBuffer32(); //Skip to 0x30
   clockSpeed = ReadBuffer32();
-  if(clockSpeed == 0)
-    clockSpeed = 4000000; //Default to 4 MHz
+  if(clockSpeed == 0 || clockSpeed > 4200000)
+    clockSpeed = 3579545; //Default to colorburst
   if(clockSpeed != prevClockSpeed)
     ltc.SetFrequency(clockSpeed);
   prevClockSpeed = clockSpeed;
@@ -415,6 +415,7 @@ void setup()
     pinMode(next_btn, INPUT_PULLUP);
     pinMode(loop_btn, INPUT_PULLUP);
     pinMode(shuf_btn, INPUT_PULLUP);
+    ltc.SetFrequency(3579545); //Init clock @ colorburst frequency.
     Serial.begin(9600);
     ym2151.Reset();
 
@@ -424,7 +425,7 @@ void setup()
     u8g2.drawStr(0,16,"Aidan Lawrence");
     u8g2.drawStr(0,32,"YM2151, 2018");
     u8g2.sendBuffer();
-    delay(1000);
+    delay(3000);
 
     if(!SD.begin())
     {
@@ -451,7 +452,7 @@ void setup()
 }
 
 
-bool tmp = false;
+bool buttonLock = false;
 void loop()
 {
   while(Serial.available())
@@ -497,17 +498,19 @@ void loop()
     StartupSequence(PREVIOUS);
   if(!digitalRead(rand_btn))
     StartupSequence(RNG);
-  if(!digitalRead(shuf_btn))
+  if(!digitalRead(shuf_btn) && !buttonLock)
   {
     playMode == SHUFFLE ? playMode = IN_ORDER : playMode = SHUFFLE;
     DrawOLEDInfo();
     playMode == SHUFFLE ? Serial.println("SHUFFLE ON") : Serial.println("SHUFFLE OFF");
+    buttonLock = true;
   }
-  if(!digitalRead(loop_btn))
+  if(!digitalRead(loop_btn) && !buttonLock)
   {
     playMode == LOOP ? playMode = IN_ORDER : playMode = LOOP;
     DrawOLEDInfo();
-    playMode == LOOP ? Serial.println("LOOP ON") : Serial.println("LOOP OFF");   
+    playMode == LOOP ? Serial.println("LOOP ON") : Serial.println("LOOP OFF"); 
+    buttonLock = true;
   }
   if(loopCount >= nextSongAfterXLoops)
   {
@@ -515,6 +518,12 @@ void loop()
       StartupSequence(RNG);
     if(playMode == IN_ORDER)
       StartupSequence(NEXT);
+  }
+
+  if(buttonLock)
+  {
+    if(digitalRead(loop_btn) && digitalRead(shuf_btn))
+      buttonLock = false;
   }
 
   unsigned long timeInMicros = micros();
@@ -529,11 +538,6 @@ void loop()
   }
   
   cmd = GetByte();
-  if(tmp == false)
-  {
-    tmp = true;
-    Serial.print("First command:"); Serial.println(cmd, HEX);
-  }
   switch(cmd)
   {
     case 0x54:
