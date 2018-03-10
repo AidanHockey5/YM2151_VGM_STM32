@@ -612,10 +612,29 @@ void loop()
       FillBuffer();
       bufferPos = 0;
       break;
-      
+    case 0xB5: //Ignore common secondary PCM chips
+    case 0xB6:
+    case 0xB7:
+    case 0xB8:
+    case 0xB9:
+    case 0xBA:
+    case 0xBB:
+    case 0xBC:
+    case 0xBD:
+    case 0xBE:
+    case 0xBF:
+    GetByte();GetByte();
+    break;
+    case 0xC0: //Ignore SegaPCM:
+    case 0xC1:
+    case 0xC2:
+    case 0xC3:
+    GetByte();GetByte();GetByte();
+    break;
+
       default:
-      Serial.print("Defaulted command: "); Serial.println(cmd, HEX);
-      Serial.print("At: "); Serial.println(vgm.position()-1, HEX);
+      // Serial.print("Defaulted command: "); Serial.println(cmd, HEX);
+      // Serial.print("At: "); Serial.println(vgm.position()-1, HEX);
       break;
 
   } 
