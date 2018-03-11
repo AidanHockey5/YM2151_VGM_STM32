@@ -10,6 +10,8 @@ This project is driven by an STM32 "Blue Pill" board, chosen for it's ample spee
 Included in this repository is the source code for the project, all of the schematic files, a Bill of Materials, and a completed 
 Ki-CAD printed circuitboard /w Gerber files. Feel free to produce your own board!
 
+![PCB](http://www.aidanlawrence.com/wp-content/uploads/2018/03/thumbnail-1024x576.jpg)
+
 # Information about the main sound chips and VGM
 
 The YM2151 was a popular sound synthesizer for classic arcade systems as well as a few higher-end home computers in the late 80's and early 90's.
