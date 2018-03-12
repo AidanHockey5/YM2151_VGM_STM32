@@ -1,6 +1,6 @@
 # YM2151 Arcade Classic
 
-www.aidanlawrence.com
+http://www.aidanlawrence.com/ym2151-arcade-classic-adlib-mini/
 
 See this project in action here: https://youtu.be/VlT8aX9DRZw
 
