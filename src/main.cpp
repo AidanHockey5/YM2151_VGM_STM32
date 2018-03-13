@@ -154,7 +154,8 @@ void ClearTrackData()
 uint32_t EoFOffset = 0;
 uint32_t VGMVersion = 0;
 uint32_t GD3Offset = 0;
-uint32_t prevClockSpeed = 1;
+uint32_t prevClockSpeed = 3579545;
+bool isFirstStart = true;
 void GetHeaderData() //Scrape off the important VGM data from the header, then drop down to the GD3 area for song info data
 {
   ReadBuffer32(); //V - G - M 0x00->0x03
@@ -237,12 +238,15 @@ void GetHeaderData() //Scrape off the important VGM data from the header, then d
   loopOffset = ReadBuffer32();  //0x1C->0x1F : Get loop offset Postition
   for(int i = 0; i<4; i++) ReadBuffer32(); //Skip to 0x30
   clockSpeed = ReadBuffer32();
-  if(clockSpeed == 0 || clockSpeed > 4200000)
-    clockSpeed = 3579545; //Default to colorburst
-  if(clockSpeed != prevClockSpeed)
-    ltc.SetFrequency(clockSpeed);
-  prevClockSpeed = clockSpeed;
-  delay(50);
+  if(!isFirstStart)
+  {
+    if(clockSpeed == 0 || clockSpeed > 4200000)
+      clockSpeed = 3579545; //Default to colorburst
+    if(clockSpeed != prevClockSpeed)
+      ltc.SetFrequency(clockSpeed);
+    prevClockSpeed = clockSpeed;
+  }
+  isFirstStart = false;
   DrawOLEDInfo();
 
   uint32_t vgmDataOffset = ReadBuffer32();
@@ -446,9 +450,6 @@ void setup()
     countFile.close();
     SD.vwd()->rewind();
     StartupSequence(FIRST_START);
-
-
-
 }
 
 
@@ -632,10 +633,9 @@ void loop()
     GetByte();GetByte();GetByte();
     break;
 
-      default:
-      // Serial.print("Defaulted command: "); Serial.println(cmd, HEX);
-      // Serial.print("At: "); Serial.println(vgm.position()-1, HEX);
-      break;
-
+    default:
+    // Serial.print("Defaulted command: "); Serial.println(cmd, HEX);
+    // Serial.print("At: "); Serial.println(vgm.position()-1, HEX);
+    break;
   } 
 }
