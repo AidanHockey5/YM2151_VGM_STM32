@@ -613,6 +613,15 @@ void loop()
       FillBuffer();
       bufferPos = 0;
       break;
+    case 0x67: //Ignore PCM data blocks
+    {
+        GetByte(); //0x66
+        GetByte(); //Datatype
+        uint32_t pcmSize = ReadBuffer32(); //Payload size;
+        for(int i=0; i<pcmSize; i++)
+          GetByte();
+        break;
+    }
     case 0xB5: //Ignore common secondary PCM chips
     case 0xB6:
     case 0xB7:
