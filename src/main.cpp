@@ -238,14 +238,11 @@ void GetHeaderData() //Scrape off the important VGM data from the header, then d
   loopOffset = ReadBuffer32();  //0x1C->0x1F : Get loop offset Postition
   for(int i = 0; i<4; i++) ReadBuffer32(); //Skip to 0x30
   clockSpeed = ReadBuffer32();
-  if(!isFirstStart)
-  {
-    if(clockSpeed == 0 || clockSpeed > 4200000)
-      clockSpeed = 3579545; //Default to colorburst
-    if(clockSpeed != prevClockSpeed)
-      ltc.SetFrequency(clockSpeed);
-    prevClockSpeed = clockSpeed;
-  }
+  if(clockSpeed == 0 || clockSpeed > 4200000)
+    clockSpeed = 3579545; //Default to colorburst
+  if(clockSpeed != prevClockSpeed)
+    ltc.SetFrequency(clockSpeed);
+  prevClockSpeed = clockSpeed;
   isFirstStart = false;
   DrawOLEDInfo();
 
@@ -419,10 +416,8 @@ void setup()
     pinMode(next_btn, INPUT_PULLUP);
     pinMode(loop_btn, INPUT_PULLUP);
     pinMode(shuf_btn, INPUT_PULLUP);
-    ltc.SetFrequency(3579545); //Init clock @ colorburst frequency.
+    ltc.SetFrequency(3579545); //Init clock @ colorburst frequency. 
     Serial.begin(9600);
-    ym2151.Reset();
-
     u8g2.begin();
     u8g2.setFont(u8g2_font_fub11_tf);
     u8g2.clearBuffer();
