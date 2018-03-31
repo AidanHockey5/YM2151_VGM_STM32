@@ -1,4 +1,4 @@
-update=3/30/2018 9:31:34 PM
+update=3/30/2018 9:35:08 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=Libraries
@@ -79,3 +77,5 @@ LibName47=Libraries/Yamaha_FM
 LibName48=Libraries/Connectors
 LibName49=Libraries/OLED
 LibName50=Libraries/jack_trs_6pins
+[general]
+version=1
