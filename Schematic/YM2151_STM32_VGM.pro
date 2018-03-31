@@ -1,4 +1,4 @@
-update=2/24/2018 11:29:17 PM
+update=Fri 30 Mar 2018 09:21:18 PM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,11 +23,9 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
-LibDir=
+LibDir=Libraries
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -61,12 +59,23 @@ LibName29=opto
 LibName30=atmel
 LibName31=contrib
 LibName32=valves
-LibName33=C:/Users/Aidan/Documents/KiCad_Custom_Libs/bluepill_breakouts
-LibName34=C:/Users/Aidan/Documents/Arduino/Teensy_3_5_VGM_Player_YM2612_SN76489/SchematicsAndInfo/Teensy_3_5_VGM_Player-cache
-LibName35=Power_Management
-LibName36=C:/Users/Aidan/Documents/KiCad_Custom_Libs/LM2596S-5.0
-LibName37=C:/Users/Aidan/Documents/KiCad_Custom_Libs/CH340G_D-SUN-V3.0-cache
-LibName38=C:/Users/Aidan/Documents/KiCad_Custom_Libs/VGM_Components_Library
-LibName39=C:/Users/Aidan/Documents/KiCad_Custom_Libs/TPA3122D2
-LibName40=C:/Users/Aidan/Documents/KiCad_Custom_Libs/DM3CS-SF
-LibName41=C:/Users/Aidan/Documents/KiCad_Custom_Libs/1825115Switch
+LibName33=Power_Management
+LibName34=Libraries/1825115Switch
+LibName35=Libraries/bluepill_breakouts
+LibName36=Libraries/CH340G_D-SUN-V3.0-cache
+LibName37=Libraries/Diodes
+LibName38=Libraries/DM3CS-SF
+LibName39=Libraries/LM2596S-5.0
+LibName40=Libraries/MiscellaneousDevices
+LibName41=Libraries/PMOD
+LibName42=Libraries/PowerComponents
+LibName43=Libraries/SN74HC595_W_VCC
+LibName44=Libraries/Teensy_With_VGM
+LibName45=Libraries/TPA3122D2
+LibName46=Libraries/VGM_Components_Library
+LibName47=Libraries/Yamaha_FM
+LibName48=Libraries/Connectors
+LibName49=Libraries/OLED
+LibName50=/media/aidan/FLASHDRIVE/!_KICAD_LIBS/jack_trs_6pins
+[general]
+version=1
