@@ -1,4 +1,4 @@
-update=Fri 30 Mar 2018 09:21:18 PM PDT
+update=3/30/2018 9:31:34 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=Libraries
@@ -76,6 +78,4 @@ LibName46=Libraries/VGM_Components_Library
 LibName47=Libraries/Yamaha_FM
 LibName48=Libraries/Connectors
 LibName49=Libraries/OLED
-LibName50=/media/aidan/FLASHDRIVE/!_KICAD_LIBS/jack_trs_6pins
-[general]
-version=1
+LibName50=Libraries/jack_trs_6pins
