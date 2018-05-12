@@ -604,7 +604,7 @@ void loop()
       if(loopOffset == 0)
         loopOffset = 64;
       loopCount++;
-      vgm.seek(loopOffset);
+      vgm.seek(loopOffset-0x1C);
       FillBuffer();
       bufferPos = 0;
       break;
