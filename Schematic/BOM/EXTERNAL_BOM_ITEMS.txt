@@ -1,6 +1,6 @@
-1x - J4 - AMP_OUT - PJ320E_3.5mm_Jack - https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20180518120441&SearchText=PJ-320E
-1x - U4 - CH340G - https://lcsc.com/product-detail/USB_CH340G_C14267.html 
+1x - J3 - AMP_OUT - PJ320E_3.5mm_Jack - https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20180518120441&SearchText=PJ-320E
+1x - U5 - CH340G - https://lcsc.com/product-detail/USB_CH340G_C14267.html 
 1x - U1 - STM32 Bluepill Board - https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20180518120532&SearchText=STM32F103C8T6
-1x -  - YM2151 - https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20180518182831&SearchText=YM2151
-1x -  - YM3012 - https://www.aliexpress.com/w/wholesale-ym3012.html?spm=2114.search0104.1.1.209a3625B8OI7f&SearchText=ym3012&initiative_id=RS_20180518192829
-1x -  - 128x32 I2C OLED - https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20180518182910&SearchText=128x32+I2C+OLED
+1x - U7 - YM2151 - https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20180518182831&SearchText=YM2151
+1x - U8 - YM3012 - https://www.aliexpress.com/w/wholesale-ym3012.html?spm=2114.search0104.1.1.209a3625B8OI7f&SearchText=ym3012&initiative_id=RS_20180518192829
+1x - U6 - 128x32 I2C OLED - https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20180518182910&SearchText=128x32+I2C+OLED
