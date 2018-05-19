@@ -45,3 +45,8 @@ Need an easy-to-use serial console? [I've made one here.](https://github.com/Aid
 ![Schematic](https://github.com/AidanHockey5/YM2151_VGM_STM32/raw/master/Schematic/YM2151_STM32_VGM.sch.png)
 
 [PDF](https://github.com/AidanHockey5/YM2151_VGM_STM32/raw/master/Schematic/YM2151_STM32_VGM.pdf)
+
+[Bill Of Materials (BOM)](https://github.com/AidanHockey5/YM2151_VGM_STM32/tree/master/Schematic/BOM)
+
+# KiCad
+The schematic and PCB of this project was made in KiCad Version 4.0.7
