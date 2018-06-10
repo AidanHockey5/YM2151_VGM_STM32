@@ -1,4 +1,4 @@
-update=3/30/2018 9:35:08 PM
+update=Sun 10 Jun 2018 02:06:24 PM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -79,3 +79,13 @@ LibName49=Libraries/OLED
 LibName50=Libraries/jack_trs_6pins
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=./
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
