@@ -10,7 +10,7 @@ void LTC6903::SetManual(uint16_t oct, uint16_t dac)
   pinMode(_target, OUTPUT);
   SPI.begin();
   //SPI.beginTransaction(SPISettings(20000000, MSBFIRST, SPI_MODE0));
-  unsigned char CNF = 0b00000000;
+  unsigned char CNF = 0b00000001;
   uint16_t BitMap = (oct << 12) | (dac << 2) | CNF;
   byte Byte1=(byte)(BitMap >> 8 );
   byte Byte2=(byte)BitMap;

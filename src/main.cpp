@@ -257,6 +257,7 @@ void GetHeaderData() //Scrape off the important VGM data from the header, then d
   }
   //Offset manually set to -4 due to overshooting the data offset. This does not seem normal and will need to be fixed.
   //Serial.println("Starting postion: "); Serial.println(vgm.position(), HEX);
+  ym2151.Reset();
 }
 
 enum StartUpProfile {FIRST_START, NEXT, PREVIOUS, RNG, REQUEST};
@@ -320,8 +321,12 @@ void StartupSequence(StartUpProfile sup, String request = "")
     {
       randomSeed(micros());
       uint16_t randomFile = currentFileNumber;
-      while(randomFile == currentFileNumber)
-        randomFile = random(numberOfFiles-1);
+      if(numberOfFiles > 1)
+      {
+        while(randomFile == currentFileNumber)
+          randomFile = random(numberOfFiles-1);
+      }
+
       currentFileNumber = randomFile;
       SD.vwd()->rewind();
       nextFile.openNext(SD.vwd(), O_READ);
