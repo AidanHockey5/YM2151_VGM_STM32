@@ -2,6 +2,7 @@
 #include <Arduino.h>
 YM2151::YM2151(int * dataPins, int CS, int RD, int WR, int A0, int IRQ, int IC)
 {
+    disableDebugPorts();
     _dataPins = dataPins;
     _CS = CS;
     _RD = RD;
@@ -48,22 +49,17 @@ void YM2151::WriteDataPins(unsigned char data) //Digital I/O
 
 void YM2151::SendDataPins(unsigned char addr, unsigned char data)
 {
-        digitalWrite(_CS, HIGH);
-        digitalWrite(_RD, HIGH);
         digitalWrite(_WR, LOW);
         digitalWrite(_A0, LOW);
         WriteDataPins(addr);
         digitalWrite(_CS, LOW);
         delayMicroseconds(1); //Replace with 10 nS delay?
         digitalWrite(_CS, HIGH);
-        digitalWrite(_RD, HIGH);
         digitalWrite(_WR, LOW);
         digitalWrite(_A0, HIGH);
         WriteDataPins(data);
         digitalWrite(_CS, LOW);
         delayMicroseconds(1); //Replace with 10 nS delay?
         digitalWrite(_CS, HIGH);
-        digitalWrite(_RD, LOW);
         digitalWrite(_WR, HIGH);
-        digitalWrite(_A0, HIGH);
 }
