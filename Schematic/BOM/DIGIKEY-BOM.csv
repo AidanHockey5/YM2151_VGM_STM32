@@ -5,7 +5,7 @@ ECS-120-20-4,ECS Inc.,X227-ND,,,Bulk,Active,1,0.69,$0.69 ,1635,9 Weeks,CRYSTAL 1
 670688011,"Molex, LLC",WM12785-ND,,,Tube,Active,1,2.06,$2.06 ,1590,12 Weeks,USB B CONN WITH KINK BOARD LOCK,RoHS Compliant,Lead free,REACH Unaffected
 16ZLH680MEFC10X12.5,Rubycon,1189-1150-ND,,,Bulk,Active,1,0.43,$0.43 ,6103,17 Weeks,CAP ALUM 680UF 20% 16V RADIAL,RoHS Compliant,Lead free,REACH Unaffected
 LM2596S-5.0/NOPB,Texas Instruments,LM2596S-5.0/NOPB-ND,,,Tube,Active,1,5.72,$5.72 ,0,30 Weeks,IC REG BUCK 5V 3A TO263-5,RoHS Compliant,Contains lead,REACH Unaffected
-K680J15C0GF5TL2,Vishay BC Components,BC1011CT-ND,,,Cut Tape (CT),Active,2,0.26,$0.52 ,17410,10 Weeks,CAP CER 68PF 50V C0G/NP0 RADIAL,RoHS Compliant,Lead free,REACH Unaffected
+FG18X7R1H683KNT06,TDK Corporation,445-173278-1-ND,,,Cut Tape (CT),,2,0.26,$0.52 ,5414,40 Weeks,0.068µF ±10% 50V Ceramic Capacitor X7R Radial,RoHS Compliant,Lead free,REACH Unaffected
 PJ-002A,CUI Inc.,CP-002A-ND,,,Bag,Active,1,0.6,$0.60 ,113742,Not Available,CONN PWR JACK 2X5.5MM SOLDER,RoHS Compliant,Lead free,Not Available
 MBR0580S1-7,Diodes Incorporated,MBR0580S1-7DICT-ND,,,Cut Tape (CT),Active,1,0.31,$0.31 ,65469,Not Available,DIODE SCHOTTKY 80V 500MA SOD123,RoHS Compliant,Lead free,REACH Unaffected
 K103K15X7RF5TL2,Vishay BC Components,BC1078CT-ND,,,Cut Tape (CT),Active,1,0.19,$0.19 ,9972,8 Weeks,CAP CER 10000PF 50V X7R RADIAL,RoHS Compliant,Lead free,Not Available
@@ -24,7 +24,8 @@ B3F-1060,Omron Electronics Inc-EMC Div,SW1177-ND,,,Bulk,Active,5,0.34,$1.70 ,271
 TPA3122D2N,Texas Instruments,296-23375-5-ND,,,Tube,Active,1,3.31,$3.31 ,421,6 Weeks,IC AMP AUDIO PWR 15W STER 20DIP,RoHS Compliant,Lead free,REACH Unaffected
 A 20-LC-TT,Assmann WSW Components,AE9998-ND,,,Tube,Active,1,0.29,$0.29 ,44887,20 Weeks,CONN IC DIP SOCKET 20POS TIN,RoHS Compliant,Lead free,REACH Unaffected
 A 24-LC-TT,Assmann WSW Components,AE10001-ND,,,Tube,Active,1,0.35,$0.35 ,6647,20 Weeks,CONN IC DIP SOCKET 24POS TIN,RoHS Compliant,Lead free,REACH Unaffected
-A 14-LC-TT,Assmann WSW Components,AE9989-ND,,,Tube,Active,2,0.22,$0.44 ,121951,20 Weeks,CONN IC DIP SOCKET 14POS TIN,RoHS Compliant,Lead free,REACH Unaffected
+A 16-LC-TT,Assmann WSW Components,AE9992-ND,,,Tube,Active,1,0.25,$0.25 ,44988,20 Weeks,CONN IC DIP SOCKET 16POS TIN,RoHS Compliant,Lead free,REACH Unaffected
+A 14-LC-TT,Assmann WSW Components,AE9989-ND,,,Tube,Active,1,0.22,$0.44 ,121951,20 Weeks,CONN IC DIP SOCKET 14POS TIN,RoHS Compliant,Lead free,REACH Unaffected
 TL064CN,Texas Instruments,296-1773-5-ND,,,Tube,Active,1,0.65,$0.65 ,2461,6 Weeks,IC OPAMP JFET 1MHZ 14DIP,RoHS Compliant,Lead free,REACH Unaffected
 RLB1014-222KL,Bourns Inc.,RLB1014-222KL-ND,,,Bag,Active,2,0.43,$0.86 ,1019,20 Weeks,FIXED IND 2.2MH 110MA 8.4 OHM TH,RoHS Compliant,Lead free,REACH Unaffected
 UHV1C102MPD6,Nichicon,493-16434-ND,,,Bulk,Active,3,0.65,$1.95 ,677,20 Weeks,CAP ALUM 1000UF 20% 16V RADIAL,RoHS Compliant,Lead free,REACH Unaffected
