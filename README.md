@@ -1,3 +1,6 @@
+# This project has been superseded by...
+https://github.com/AidanHockey5/YM2151_Arcade_Classic_2
+
 # YM2151 Arcade Classic
 
 http://www.aidanlawrence.com/ym2151-arcade-classic-adlib-mini/
